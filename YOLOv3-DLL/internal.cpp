@@ -7,7 +7,7 @@
 using namespace std;
 using namespace cv;
 
-std::vector<Detection> _getDetections(std::string image_path) {
+std::vector<Detection> _getDetections(char* image_path) {
     // load model from config and weights file
     dnn::Net net = dnn::readNetFromDarknet(configFile, weightsFile);
 

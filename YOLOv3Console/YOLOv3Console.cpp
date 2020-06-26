@@ -2,13 +2,12 @@
 //
 
 #include <iostream>
-#include <string>
 #include <YOLOv3-DLL/YOLOv3Lib.h>
 
 int main()
 {
-    std::string img_path = "C:/Users/dell/source/repos/YOLOv3-DLL/test.jpg";
-    int result = doDetections(img_path);
+    char img_path[] = "C:/Users/dell/source/repos/YOLOv3-DLL/test.jpg";
+    int result = doDetection(img_path);
 
     Detection objects[20];
     int size = getDetections(objects, 20);

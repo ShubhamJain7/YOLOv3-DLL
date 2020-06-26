@@ -22,7 +22,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
 std::vector<Detection> g_detections;
 
-int doDetections(std::string image_path) {
+int doDetection(char* image_path) {
     g_detections = _getDetections(image_path);
     return g_detections.size();
 }
