@@ -2,11 +2,12 @@
 //
 
 #include <iostream>
+#include <string>
 #include <YOLOv3-DLL/YOLOv3Lib.h>
 
 int main()
 {
-    char img_path[] = "wdkhbd";
+    std::string img_path = "wdkhbd";
     int x = doDetections(img_path);
 
     Detection objects[20];
