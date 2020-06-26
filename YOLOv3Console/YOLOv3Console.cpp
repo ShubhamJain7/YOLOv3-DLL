@@ -7,12 +7,12 @@
 
 int main()
 {
-    std::string img_path = "wdkhbd";
-    int x = doDetections(img_path);
+    std::string img_path = "C:/Users/dell/source/repos/YOLOv3-DLL/test.jpg";
+    int result = doDetections(img_path);
 
     Detection objects[20];
-    int y = getDetections(objects, 20);
-    for (int i = 0; i < y; i++)
+    int size = getDetections(objects, 20);
+    for (int i = 0; i < size; i++)
     {
         Detection d = objects[i];
         std::cout << d.classId << "(" << d.probability << "):";
