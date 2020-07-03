@@ -6,8 +6,10 @@
 
 int main()
 {
+    char configFile[] = "C:/Users/dell/source/repos/YOLOv3-DLL/models/yolov3.cfg";
+    char weightsFile[] = "C:/Users/dell/source/repos/YOLOv3-DLL/models/yolov3.weights";
     char img_path[] = "C:/Users/dell/source/repos/YOLOv3-DLL/test.jpg";
-    int result = doDetection(img_path);
+    int result = doDetection(configFile, weightsFile, img_path);
 
     Detection objects[20];
     int size = getDetections(objects, 20);

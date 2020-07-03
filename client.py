@@ -2,7 +2,9 @@ from ctypes import *
 import sys
 from collections import Counter
 # define absolute path to image
-image_path = 'C:/Users/dell/source/repos/YOLOv3-DLL/test2.jpg'
+config_file = 'C:/Users/dell/source/repos/YOLOv3-DLL/models/yolov3.cfg'
+weights_file = 'C:/Users/dell/source/repos/YOLOv3-DLL/models/yolov3.weights'
+image_path = 'C:/Users/dell/source/repos/YOLOv3-DLL/test.jpg'
 
 # define singular and plural forms of class labels 
 CLASSES_SINGULAR = ['a person', 'a bicycle', 'a car', 'a motorbike', 'an aeroplane', 'a bus', 'a train', 'a truck', 'a boat', 
@@ -27,7 +29,7 @@ CLASSES_PLURAL = ['people', 'bicycles', 'cars', 'motorbikes', 'aeroplanes', 'bus
 		   'mice', 'remotes', 'keyboards', 'cell phones', 'microwaves', 'ovens', 'toasters', 'sinks', 
 		   'refrigerators', 'books', 'clocks', 'vases', 'scissors', 'teddy bears', 'hairdryers', 'toothbrushes']
 
-# python definition of 'Detection' struc
+# python definition of 'Detection' struct
 class Detection(Structure):
 	_fields_ = [("classId", c_int),
 				("probability", c_float),
@@ -47,10 +49,10 @@ lib = CDLL("C:/Users/dell/source/repos/YOLOv3-DLL/Release/YOLOv3-DLL.dll")
 
 # define return type and arguments of 'doDetection' function
 lib.doDetection.restype = c_int
-lib.doDetection.argtypes = [c_char_p]
+lib.doDetection.argtypes = [c_char_p, c_char_p, c_char_p]
 
 # call 'doDetection' function and get number of objects detected 
-res = lib.doDetection(image_path.encode('utf-8'))
+res = lib.doDetection(config_file.encode('utf-8'),weights_file.encode('utf-8'),image_path.encode('utf-8'))
 DetectedObjectsArray = Detection * res
 
 # continue if objects were detected
