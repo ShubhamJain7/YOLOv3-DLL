@@ -56,7 +56,7 @@ std::vector<Detection> _getDetections(char* configFile, char* weightsFile, char*
                 // store filtered results
                 classIds.push_back(classidPoint.x);
                 confidences.push_back((float)confidence);
-                boxes.push_back(Rect(y, x, w, h));
+                boxes.push_back(Rect(x, y, w, h));
             }
         }
     }
